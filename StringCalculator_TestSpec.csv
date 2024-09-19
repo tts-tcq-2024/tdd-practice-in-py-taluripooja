@@ -1,0 +1,34 @@
+Test Case ID,Test Case Name,Description,Input,Expected Output,Notes
+TC_001,EmptyString_ShouldReturnZero,Empty string returns 0,"""""",0,Base case for empty string
+TC_002,SingleNumber_ShouldReturnTheNumber,Single number input returns the number itself,"""5""",5,Base case for a single number
+TC_003,TwoNumbersCommaSeparated_ShouldReturnSum,Two numbers separated by a comma,"""2,3""",5,Sum of two numbers
+TC_004,MultipleNumbersCommaSeparated_ShouldReturnSum,Multiple numbers separated by commas,"""1,2,3,4,5""",15,Handles multiple inputs
+TC_005,NewlineDelimiter_ShouldReturnSum,Handle new lines between numbers,"""2
+3,4""",9,Supports newline as delimiter
+TC_006,InvalidFormatCommaNewline_ShouldThrowError,Incorrect format with newline after comma,"""1,
+2""",Error,Input format is not allowed
+TC_007,CustomDelimiterSemicolon_ShouldReturnSum,Supports custom delimiter (semicolon),"""//;
+2;3""",5,Custom delimiter support
+TC_008,CustomDelimiterMultipleNumbers_ShouldReturnSum,Custom delimiter with multiple numbers,"""//;
+1;2;3;4""",10,Custom delimiter with more than two numbers
+TC_009,NegativeNumber_ShouldThrowException,Negative number throws an exception,"""-5,3""","Exception: ""negatives not allowed: -5""",Negative numbers are not allowed
+TC_010,MultipleNegativeNumbers_ShouldThrowException,Multiple negative numbers throw an exception,"""-4,-2,6""","Exception: ""negatives not allowed: -4, -2""",All negative numbers are shown in the exception
+TC_011,NumbersGreaterThan1000_ShouldBeIgnored,Numbers greater than 1000 are ignored in the sum,"""1001,5""",5,Numbers larger than 1000 should be ignored
+TC_012,NumbersEqualTo1000_ShouldBeIncluded,Numbers equal to 1000 are included in the sum,"""1000,3""",1003,1000 is included in the sum
+TC_013,MultipleCustomDelimiters_ShouldReturnSum,Multiple custom delimiters are supported,"""//[*][%]
+1*2%3""",6,Supports multiple custom delimiters
+TC_014,CustomDelimitersOfAnyLength_ShouldReturnSum,Custom delimiters of any length,"""//[***][%%]
+1***2%%3""",6,Supports delimiters of any length
+TC_015,EmptyInputWithCustomDelimiter_ShouldReturnZero,Empty input with custom delimiter returns 0,"""//;
+""",0,Handles empty input with custom delimiter
+TC_016,TrailingDelimiter_ShouldThrowError,Delimiter at the end of input throws an error,"""1,2,""",Error,Handles incorrect input with trailing delimiter
+TC_017,MixedDelimitersCommaAndNewline_ShouldReturnSum,Multiple newlines and commas as delimiters,"""1
+2,3
+4,5""",15,Handles both newlines and commas as delimiters
+TC_018,NegativeNumbersWithCustomDelimiter_ShouldThrowException,Negative numbers with custom delimiter throw exception,"""//;
+-1;-2;3""","Exception: ""negatives not allowed: -1, -2""",Exception for negatives using custom delimiter
+TC_019,OnlyDelimiter_ShouldThrowError,Input with only a delimiter throws an error,""",""",Error,Input should contain numbers
+TC_020,ConsecutiveDelimitersWithoutNumbers_ShouldThrowError,Consecutive delimiters without numbers throws an error,"""1,,2""",Error,Invalid input with consecutive delimiters
+TC_021,NegativeNumbersAndLargeNumbers_ShouldThrowPartialException,Exception with negative and large numbers,"""-1,-1001,-5,3""","Exception: ""negatives not allowed: -1, -5""","Only valid negatives are shown, ignoring large numbers"
+TC_022,CustomDelimiterWithNoNumbers_ShouldReturnZero,Custom delimiter but no numbers returns 0,"""//;
+""",0,Handles custom delimiter without any numbers
